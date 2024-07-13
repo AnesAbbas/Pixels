@@ -32,7 +32,7 @@ const isJsButNotJQuery = (file) => {
   // Task to zip the processed files
   gulp.task('zip-files', async function() {
     const zip = (await import('gulp-zip')).default;
-    return gulp.src(paths.dest.unzipped + '/**/*')
+    return gulp.src(paths.dest.unzipped + '/**/*', {encoding: false})
       .pipe(zip('output.zip'))
       .pipe(gulp.dest(paths.dest.zipped));
   });
